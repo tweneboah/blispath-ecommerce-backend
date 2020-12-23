@@ -1,9 +1,9 @@
-import cors from 'cors';
 import express from 'express';
-
+import cors from 'cors';
 import dotenv from 'dotenv';
 // import dbConnect from './config/db';
-
+const app = express();
+app.use(cors());
 // import productRoutes from './routes/productRoutes';
 import { notFound, errorHandler } from './middlewares/errorMiddleware.js';
 import userRoutes from './routes/userRoutes.js';
@@ -12,10 +12,9 @@ import { paymentRoutes } from './routes/paymentRoutes.js';
 import { paystackWebhookRoute } from './routes/paymentWebHookRoute.js';
 import { connectDb } from './config/connectDb.js';
 import productRoutes from './routes/productRoutes.js';
-const app = express();
+
 dotenv.config();
 connectDb();
-app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
