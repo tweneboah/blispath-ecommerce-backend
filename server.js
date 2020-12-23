@@ -1,5 +1,6 @@
-import express from 'express';
 import cors from 'cors';
+import express from 'express';
+
 import dotenv from 'dotenv';
 // import dbConnect from './config/db';
 
@@ -11,11 +12,11 @@ import { paymentRoutes } from './routes/paymentRoutes.js';
 import { paystackWebhookRoute } from './routes/paymentWebHookRoute.js';
 import { connectDb } from './config/connectDb.js';
 import productRoutes from './routes/productRoutes.js';
-
+const app = express();
 dotenv.config();
 connectDb();
 app.use(cors());
-const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
