@@ -3,7 +3,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 // import dbConnect from './config/db';
 const app = express();
-app.use(cors());
+
+app.options('*', cors());
 // import productRoutes from './routes/productRoutes';
 import { notFound, errorHandler } from './middlewares/errorMiddleware.js';
 import userRoutes from './routes/userRoutes.js';
