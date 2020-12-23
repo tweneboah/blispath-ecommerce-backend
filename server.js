@@ -14,11 +14,11 @@ import productRoutes from './routes/productRoutes.js';
 
 dotenv.config();
 connectDb();
-
+app.use(cors());
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
