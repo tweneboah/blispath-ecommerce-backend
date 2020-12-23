@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { paystackWebhookController } from '../controllers/paymentWebHook';
+import { paystackWebhookController } from '../controllers/paymentWebHook.js';
 
 const paystackWebhookRoute = express.Router();
 

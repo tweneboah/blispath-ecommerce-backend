@@ -7,10 +7,10 @@ import {
   getProductById,
   getProducts,
   updateProductController,
-} from '../controllers/productController';
-import { isAdmin } from '../middlewares/adminMiddleware';
-import { protect } from '../middlewares/authMiddleware';
-import { multerUpload } from '../utils/multer';
+} from '../controllers/productController.js';
+import { isAdmin } from '../middlewares/adminMiddleware.js';
+import { protect } from '../middlewares/authMiddleware.js';
+import { multerUpload } from '../utils/multer.js';
 const productRoutes = express.Router();
 
 //products

@@ -67,9 +67,9 @@
 
 import expressAsyncHandler from 'express-async-handler';
 import crypto from 'crypto';
-import User from '../models/userModel';
-import Order from '../models/orderModel';
-import { Payment } from '../models/paymentModel';
+import User from '../models/userModel.js';
+import Order from '../models/orderModel.js';
+import { Payment } from '../models/paymentModel.js';
 //Paystack will this automatically
 const paystackWebhookController = expressAsyncHandler(async (req, res) => {
   let secret = process.env.paystackTestSecretKey;

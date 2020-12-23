@@ -1,6 +1,6 @@
 import expressAsyncHandler from 'express-async-handler';
 import axios from 'axios';
-import { Payment } from '../models/paymentModel';
+import { Payment } from '../models/paymentModel.js';
 
 //PAYSTACK POST REQUES HANDLER
 const paystackPostRequestProxyController = expressAsyncHandler(

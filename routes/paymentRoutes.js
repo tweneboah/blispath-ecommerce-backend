@@ -2,7 +2,7 @@ import express from 'express';
 import {
   fetchAllPaymentsController,
   paystackPostRequestProxyController,
-} from '../controllers/paymentController';
+} from '../controllers/paymentController.js';
 
 const paymentRoutes = express.Router();
 

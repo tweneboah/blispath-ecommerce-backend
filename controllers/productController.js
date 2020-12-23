@@ -1,10 +1,8 @@
-import { query } from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import fs from 'fs';
 import asyncHandler from 'express-async-handler';
-import Product from '../models/productModel';
-import { cloudinaryUploadImage } from '../utils/cloudinary';
-const { cloudinary } = require('../config/cloudinary');
+import Product from '../models/productModel.js';
+import { cloudinaryUploadImage } from '../utils/cloudinary.js';
 
 //Get all Products
 const getProducts = asyncHandler(async (req, res) => {

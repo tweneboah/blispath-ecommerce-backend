@@ -7,9 +7,9 @@ import {
   newPasswordResetController,
   registerUser,
   updateUserProfileController,
-} from '../controllers/userController';
-import { isAdmin } from '../middlewares/adminMiddleware';
-import { protect } from '../middlewares/authMiddleware';
+} from '../controllers/userController.js';
+import { isAdmin } from '../middlewares/adminMiddleware.js';
+import { protect } from '../middlewares/authMiddleware.js';
 
 const userRoutes = express.Router();
 

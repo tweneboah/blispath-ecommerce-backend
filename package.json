@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "MERN Ecommerce",
   "main": "server.js",
+  "engines": {
+    "node": "v12.18.3"
+  },
+  "type": "module",
   "scripts": {
-    "start": "node -r esm server.js",
-    "server": "nodemon -r esm server"
+    "start": "node server.js",
+    "server": "nodemon  server"
   },
   "author": "Emmanuel Tweneboah",
   "license": "MIT",

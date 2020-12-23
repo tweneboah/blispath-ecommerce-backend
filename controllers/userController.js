@@ -4,8 +4,8 @@ import asyncHandler from 'express-async-handler';
 import nodemailer from 'nodemailer';
 import sendGridTransport from 'nodemailer-sendgrid-transport';
 import crypto from 'crypto';
-import User from '../models/userModel';
-import generateToken from '../utils/generateToken';
+import User from '../models/userModel.js';
+import generateToken from '../utils/generateToken.js';
 
 //=====================
 //====CONFIGURE TO SEND EMAIL=======
