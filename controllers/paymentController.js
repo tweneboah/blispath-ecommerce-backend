@@ -1,6 +1,6 @@
-import expressAsyncHandler from 'express-async-handler';
-import axios from 'axios';
-import { Payment } from '../models/paymentModel.js';
+const expressAsyncHandler = require('express-async-handler');
+const axios = require('axios');
+const { Payment } = require('../models/paymentModel.js');
 
 //PAYSTACK POST REQUES HANDLER
 const paystackPostRequestProxyController = expressAsyncHandler(
@@ -44,7 +44,7 @@ const fetchAllPaymentsController = expressAsyncHandler(async (req, res) => {
   const payments = await Payment.find({});
   res.status(200).json(payments);
 });
-export {
+module.exports = {
   paystackPostRequestProxyController,
   paystackGetRequestProxyController,
   fetchAllPaymentsController,

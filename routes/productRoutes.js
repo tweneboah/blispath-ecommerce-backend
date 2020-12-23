@@ -1,5 +1,5 @@
-import express from 'express';
-import {
+const express = require('express');
+const {
   createProductController,
   deleteProductController,
   fileUploadController,
@@ -7,10 +7,10 @@ import {
   getProductById,
   getProducts,
   updateProductController,
-} from '../controllers/productController.js';
-import { isAdmin } from '../middlewares/adminMiddleware.js';
-import { protect } from '../middlewares/authMiddleware.js';
-import { multerUpload } from '../utils/multer.js';
+} = require('../controllers/productController.js');
+const { isAdmin } = require('../middlewares/adminMiddleware.js');
+const { protect } = require('../middlewares/authMiddleware.js');
+const { multerUpload } = require('../utils/multer.js');
 const productRoutes = express.Router();
 
 //products
@@ -28,4 +28,4 @@ productRoutes.post('/file', fileUploadController);
 productRoutes.route('/:id').get(getProductById);
 productRoutes.put('/update/:id', updateProductController);
 productRoutes.delete('/delete/:id', deleteProductController);
-export default productRoutes;
+module.exports = productRoutes;

@@ -1,12 +1,12 @@
-import express from 'express';
-import {
+const express = require('express');
+const {
   addOrderItemsController,
   getOrderByIdController,
   getMyOrdersController,
   getAllOrdersController,
   updateOrderToDeliveredController,
-} from '../controllers/orderController.js';
-import { protect } from '../middlewares/authMiddleware.js';
+} = require('../controllers/orderController.js');
+const { protect } = require('../middlewares/authMiddleware.js');
 
 const orderRoutes = express.Router();
 
@@ -20,4 +20,4 @@ orderRoutes.put(
   updateOrderToDeliveredController
 );
 
-export { orderRoutes };
+module.exports = { orderRoutes };

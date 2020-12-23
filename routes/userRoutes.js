@@ -1,5 +1,5 @@
-import express from 'express';
-import {
+const express = require('express');
+const {
   authUser,
   getUserProfile,
   getUsersController,
@@ -7,9 +7,9 @@ import {
   newPasswordResetController,
   registerUser,
   updateUserProfileController,
-} from '../controllers/userController.js';
-import { isAdmin } from '../middlewares/adminMiddleware.js';
-import { protect } from '../middlewares/authMiddleware.js';
+} = require('../controllers/userController.js');
+const { isAdmin } = require('../middlewares/adminMiddleware.js');
+const { protect } = require('../middlewares/authMiddleware.js');
 
 const userRoutes = express.Router();
 
@@ -25,4 +25,4 @@ userRoutes.post(
 );
 userRoutes.post('/new-password-reset', newPasswordResetController);
 
-export default userRoutes;
+module.exports = userRoutes;

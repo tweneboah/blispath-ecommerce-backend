@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const paymentSchema = new mongoose.Schema({
   user: {
@@ -30,4 +30,4 @@ const paymentSchema = new mongoose.Schema({
 
 const Payment = mongoose.model('Payment', paymentSchema);
 //This will be called at webohook
-export { Payment };
+module.exports = { Payment };

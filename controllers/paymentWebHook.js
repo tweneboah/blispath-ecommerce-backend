@@ -1,75 +1,8 @@
-// import expressAsyncHandler from 'express-async-handler';
-// import crypto from 'crypto';
-
-// //Paystack will this automatically
-// const paystackWebhookController = expressAsyncHandler(async (req, res) => {
-//   try {
-//     let secret = process.env.paystackTestSecretKey;
-//     // let hash = crypto
-//     //   .createHmac('sha512', secret)
-//     //   .update(JSON.stringify(req.body))
-//     //   .digest('hex');
-
-//     // if (hash == req.headers['x-paystack-signature']) {
-//     //   //We have access to the event data at req.body
-//     //   //Here we can check for an event type then triger the neccesaary cutom function
-//     //   let webHookData = req.body;
-
-//     //   //console.log(webHookData);
-//     //   // if (webHookData.data.plan && webHookData.data.plan !== undefined) {
-//     //   //   console.log(webHookData.data.plan);
-//     //   // }else {
-
-//     //   // }
-
-//     //   // if (!webHookData.data.subscription && webHookData.data.plan) {
-//     //   //   console.log(webHookData);
-//     //   // } else {
-//     //   // }
-//     //   //Find the user and then you can update his records like this
-//     //   // let paidUser = await User.findOne({
-//     //   //   email: webHookData.data.customer.email,
-//     //   // });
-//     //   // let updatedPaidUser = await User.findByIdAndUpdate(
-//     //   //   paidUser._id,
-//     //   //   {
-//     //   //     paidForVacation: true,
-//     //   //     paymentDetails: webHookData,
-//     //   //   },
-//     //   //   { new: true }
-//     //   // );
-//     //   // console.log(updatedPaidUser);
-
-//     //   console.log(webHookData.data.event);
-//     // }
-//     //Paystack requires us to send 200
-
-//     // var hash = crypto
-//     //   .createHmac('sha512', secret)
-//     //   .update(JSON.stringify(req.body))
-//     //   .digest('hex');
-//     // if (hash == req.headers['x-paystack-signature']) {
-//     //   // Retrieve the request's body
-//     //   var event = req.body;
-//     //   // Do something with event
-
-//     // }
-
-//     console.log(req.body);
-//     res.sendStatus(200);
-//   } catch (error) {
-//     console.log(error.message);
-//     console.log(error);
-//   }
-// });
-
-// export { paystackWebhookController };
-
-import expressAsyncHandler from 'express-async-handler';
-import crypto from 'crypto';
-import User from '../models/userModel.js';
-import Order from '../models/orderModel.js';
-import { Payment } from '../models/paymentModel.js';
+const expressAsyncHandler = require('express-async-handler');
+const crypto = require('crypto');
+const User = require('../models/userModel.js');
+const Order = require('../models/orderModel.js');
+const { Payment } = require('../models/paymentModel.js');
 //Paystack will this automatically
 const paystackWebhookController = expressAsyncHandler(async (req, res) => {
   let secret = process.env.paystackTestSecretKey;
@@ -116,4 +49,4 @@ const paystackWebhookController = expressAsyncHandler(async (req, res) => {
   res.sendStatus(200);
 });
 
-export { paystackWebhookController };
+module.exports = { paystackWebhookController };

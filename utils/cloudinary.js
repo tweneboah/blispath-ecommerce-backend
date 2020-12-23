@@ -1,4 +1,4 @@
-import cloudinary from 'cloudinary';
+const cloudinary = require('cloudinary');
 
 // dotenv.config();
 cloudinary.config({
@@ -34,4 +34,4 @@ const cloudinaryUploadImage = (fileToUpload, folderToStoreOnCloudinary) => {
   });
 };
 
-export { cloudinaryUploadImage };
+module.exports = { cloudinaryUploadImage };

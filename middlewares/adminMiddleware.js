@@ -7,4 +7,4 @@ const isAdmin = (req, res, next) => {
   }
 };
 
-export { isAdmin };
+module.exports = { isAdmin };

@@ -1,18 +1,18 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-// import dbConnect from './config/db';
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+// const dbConnect require( './config/db';
 const app = express();
+app.use(cors());
 
-app.options('*', cors());
-// import productRoutes from './routes/productRoutes';
-import { notFound, errorHandler } from './middlewares/errorMiddleware.js';
-import userRoutes from './routes/userRoutes.js';
-import { orderRoutes } from './routes/orderRoutes.js';
-import { paymentRoutes } from './routes/paymentRoutes.js';
-import { paystackWebhookRoute } from './routes/paymentWebHookRoute.js';
-import { connectDb } from './config/connectDb.js';
-import productRoutes from './routes/productRoutes.js';
+// const productRoutes require( './routes/productRoutes';
+const { notFound, errorHandler } = require('./middlewares/errorMiddleware.js');
+const userRoutes = require('./routes/userRoutes.js');
+const { orderRoutes } = require('./routes/orderRoutes.js');
+const { paymentRoutes } = require('./routes/paymentRoutes.js');
+const { paystackWebhookRoute } = require('./routes/paymentWebHookRoute.js');
+const { connectDb } = require('./config/connectDb.js');
+const productRoutes = require('./routes/productRoutes.js');
 
 dotenv.config();
 connectDb();

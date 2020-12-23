@@ -1,10 +1,12 @@
-import express from 'express';
+const express = require('express');
 
-import { paystackWebhookController } from '../controllers/paymentWebHook.js';
+const {
+  paystackWebhookController,
+} = require('../controllers/paymentWebHook.js');
 
 const paystackWebhookRoute = express.Router();
 
 //This will be called by paystack automatically
 paystackWebhookRoute.post('/', paystackWebhookController);
 
-export { paystackWebhookRoute };
+module.exports = { paystackWebhookRoute };

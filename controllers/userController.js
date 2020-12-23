@@ -1,11 +1,11 @@
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 dotenv.config();
-import asyncHandler from 'express-async-handler';
-import nodemailer from 'nodemailer';
-import sendGridTransport from 'nodemailer-sendgrid-transport';
-import crypto from 'crypto';
-import User from '../models/userModel.js';
-import generateToken from '../utils/generateToken.js';
+const asyncHandler = require('express-async-handler');
+const nodemailer = require('nodemailer');
+const sendGridTransport = require('nodemailer-sendgrid-transport');
+const crypto = require('crypto');
+const User = require('../models/userModel.js');
+const generateToken = require('../utils/generateToken.js');
 
 //=====================
 //====CONFIGURE TO SEND EMAIL=======
@@ -190,7 +190,7 @@ const newPasswordResetController = asyncHandler(async (req, res) => {
   }
 });
 
-export {
+module.exports = {
   authUser,
   getUserProfile,
   registerUser,
