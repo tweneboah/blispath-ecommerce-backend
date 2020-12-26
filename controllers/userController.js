@@ -51,7 +51,7 @@ const registerUser = asyncHandler(async (req, res) => {
         subject: 'Verify Your Account',
         html: `
         <p>You requested for password reset</p>
-        <h5>Click the link to reset your password <a href='http://localhost:3000/new-password-update/${token}'>password</a></h5>
+        <h5>Click the link to verify your account <a href='https://blispath-frontend.netlify.app/new-password-update/${token}'>password</a></h5>
         `,
       });
       res.status(200).json({
@@ -161,7 +161,7 @@ const resetPasswordRequestTokenController = asyncHandler(async (req, res) => {
         subject: 'Password Reset request',
         html: `
         <p>You requested for password reset</p>
-        <h5>Click the link to reset your password <a href='http://localhost:3000/new-password-update/${token}'>password</a></h5>
+        <h5>Click the link to reset your password <a href='https://blispath-frontend.netlify.app/new-password-update/${token}'>password</a></h5>
         `,
       });
       res.json({ message: 'Check your email to reset your password' });
