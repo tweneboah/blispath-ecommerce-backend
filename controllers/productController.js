@@ -19,6 +19,18 @@ const getProducts = asyncHandler(async (req, res) => {
   }
 });
 
+const getProductsByCategoryController = asyncHandler(async (req, res) => {
+  console.log(req.query.name);
+  const products = await Product.find({ category: req.body.category }).sort(
+    '-createdAt'
+  );
+  if (products || products.length === []) {
+    res.json(products);
+  } else {
+    throw new Error('Error occured');
+  }
+});
+
 //Get all Products
 const getProductById = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
@@ -141,4 +153,5 @@ module.exports = {
   deleteProductController,
   findProductByNameController,
   fileUploadController,
+  getProductsByCategoryController,
 };

@@ -36,8 +36,8 @@ const productSchema = new mongoose.Schema(
     },
     image: [
       {
-        url: { type: String, required: true },
-        public_id: { type: String, required: true },
+        url: { type: String, required: [true, 'url is requrired'] },
+        public_id: { type: String, required: [true, 'image id is requred'] },
       },
     ],
     isProductNew: {
@@ -59,6 +59,7 @@ const productSchema = new mongoose.Schema(
         'Home Appliances',
         'Auto Parts',
       ],
+      required: true,
     },
     description: {
       type: String,

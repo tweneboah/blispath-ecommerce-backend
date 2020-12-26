@@ -87,6 +87,7 @@ const authUser = asyncHandler(async (req, res) => {
 
 //USER PROFILE
 
+//Since this route is protected as soon as a user logins it will grab the id from the request body automatically
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id).populate('orders').exec();
   if (user) {
