@@ -51,7 +51,7 @@ const registerUser = asyncHandler(async (req, res) => {
         subject: 'Verify Your Account',
         html: `
         <p>You requested for password reset</p>
-        <h5>Click the link to verify your account <a href='https://blispath-frontend.netlify.app/new-password-update/${token}'>password</a></h5>
+        <h5>Click the link to verify your  <a href='https://blispath-frontend.netlify.app/new-password-update/${token}'>account</a></h5>
         `,
       });
       res.status(200).json({
