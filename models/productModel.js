@@ -18,11 +18,6 @@ const reviewSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-var imageSchema = new mongoose.Schema({
-  url: { type: String },
-  id: { type: String },
-});
-
 const productSchema = new mongoose.Schema(
   {
     user: {

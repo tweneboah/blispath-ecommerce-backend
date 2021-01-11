@@ -25,27 +25,30 @@ const orderSchema = new mongoose.Schema(
       city: { type: String, required: true },
       postalCode: { type: String, required: true },
       country: { type: String, required: true },
+      phoneNumber: { type: String, required: true },
+      email: { type: String, required: true },
+      region: {
+        type: String,
+        enum: ['Ashanti', 'Accra', 'Northern', 'Eastern', 'Western'],
+        required: true,
+      },
+      shippingType: {
+        type: String,
+        required: true,
+        enum: ['Free', 'Express'],
+      },
     },
     // paymentMethod: {
     //   type: String,
     //   required: true,
     // },
-    paymentResult: {
-      id: { type: String },
-      status: { type: String },
-      update_time: { type: String },
-      email_address: { type: String },
-    },
+
     taxPrice: {
       type: Number,
       required: true,
       default: 0.0,
     },
-    shippingPrice: {
-      type: Number,
-      required: true,
-      default: 0.0,
-    },
+
     totalPrice: {
       type: Number,
       required: true,

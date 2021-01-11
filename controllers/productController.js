@@ -1,5 +1,6 @@
 const expressAsyncHandler = require('express-async-handler');
 const fs = require('fs');
+const sharp = require('sharp');
 const asyncHandler = require('express-async-handler');
 const Product = require('../models/productModel.js');
 const { cloudinaryUploadImage } = require('../utils/cloudinary.js');
@@ -57,32 +58,19 @@ const fileUploadController = async (req, res) => {
 };
 
 const createProductController = asyncHandler(async (req, res) => {
-  // console.log(req.body.image);
-  // //CREATE THE FILE
-  cloudinaryUploadImage('front_face.png', {
-    secure: true,
-    transformation: [
-      { width: 150, height: 150, gravity: 'face', crop: 'thumb' },
-      { radius: 20 },
-      { effect: 'sepia' },
-      {
-        overlay: 'cloudinary_icon_blue',
-        gravity: 'south_east',
-        x: 5,
-        y: 5,
-        width: 50,
-        opacity: 60,
-        effect: 'brightness:200',
-      },
-      { angle: 10 },
-    ],
-  });
   const uploader = async fileToUpload =>
     await cloudinaryUploadImage(fileToUpload, 'name-of-my-folder');
   const urls = [];
   const files = req.files;
+
   for (const file of files) {
     const { path } = file;
+
+    console.log('raw file', path);
+
+    // //Transform it using sharp
+    // sharp(path).resize(200, 200);
+
     const newPath = await uploader(path, {
       width: 350,
       fetch_format: 'auto',
