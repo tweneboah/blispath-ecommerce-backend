@@ -11,8 +11,12 @@ const orderSchema = new mongoose.Schema(
       {
         name: { type: String, required: true },
         qty: { type: Number, required: true },
-        image: { type: [String], required: true }, //Because when creating the profuct we made it array
+        image: { type: [String], required: true },
+        color: { type: String },
+        size: { type: String },
+        //Because when creating the profuct we made it array
         price: { type: Number, required: true },
+
         product: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,
@@ -38,10 +42,6 @@ const orderSchema = new mongoose.Schema(
         enum: ['Free', 'Express'],
       },
     },
-    // paymentMethod: {
-    //   type: String,
-    //   required: true,
-    // },
 
     taxPrice: {
       type: Number,

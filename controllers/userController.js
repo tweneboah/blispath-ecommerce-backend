@@ -64,7 +64,7 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-//Get all Products
+//LOGIN
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
