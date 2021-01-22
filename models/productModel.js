@@ -42,6 +42,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    colors: { type: Array, required: true },
     category: {
       type: String,
       enum: [
@@ -65,11 +66,11 @@ const productSchema = new mongoose.Schema(
       required: true,
       default: 0,
     },
-    numReviews: {
-      type: Number,
-      required: true,
-      default: 0,
-    },
+    // numReviews: {
+    //   type: Number,
+    //   required: true,
+    //   default: 0,
+    // },
     price: {
       type: Number,
       required: true,
@@ -90,3 +91,7 @@ const productSchema = new mongoose.Schema(
 
 const Product = mongoose.model('Product', productSchema);
 module.exports = Product;
+
+// +86 15344321788
+
+// wentianjin.dev@outlook.com

@@ -58,6 +58,7 @@ const fileUploadController = async (req, res) => {
 };
 
 const createProductController = asyncHandler(async (req, res) => {
+  console.log(req.body.colors.length);
   const uploader = async fileToUpload =>
     await cloudinaryUploadImage(fileToUpload, 'name-of-my-folder');
   const urls = [];
@@ -65,8 +66,6 @@ const createProductController = asyncHandler(async (req, res) => {
 
   for (const file of files) {
     const { path } = file;
-
-    console.log('raw file', path);
 
     // //Transform it using sharp
     // sharp(path).resize(200, 200);
@@ -79,9 +78,8 @@ const createProductController = asyncHandler(async (req, res) => {
     urls.push(newPath);
     fs.unlinkSync(path);
   }
-  // const allImages = [];
 
-  const product = await Product.insertMany({
+  const product = await Product.create({
     image: urls,
     name: req.body.name.toLowerCase(),
     price: req.body.price,
@@ -89,8 +87,8 @@ const createProductController = asyncHandler(async (req, res) => {
     brand: req.body.brand,
     category: req.body.category,
     countInStock: req.body.countInStock,
-    numReviews: req.body.numReviews,
     description: req.body.description,
+    colors: req.body.colors,
     isProductNew: Date.now() + 300000, //a day
   });
 

@@ -24,6 +24,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/pay', paymentRoutes);
+//make sure you set the same url in your paystack dashboard
 app.use('/paystack/webhook', paystackWebhookRoute);
 
 app.get('/', (req, res) => res.json({ app: 'MERN ECOMMERCE' }));
