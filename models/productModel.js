@@ -43,6 +43,7 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
     colors: { type: Array, required: true },
+    sizes: { type: Array, required: true },
     category: {
       type: String,
       enum: [

@@ -89,6 +89,7 @@ const createProductController = asyncHandler(async (req, res) => {
     countInStock: req.body.countInStock,
     description: req.body.description,
     colors: req.body.colors,
+    sizes: req.body.sizes,
     isProductNew: Date.now() + 300000, //a day
   });
 
