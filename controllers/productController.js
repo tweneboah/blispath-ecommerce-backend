@@ -32,7 +32,7 @@ const getProductsByCategoryController = asyncHandler(async (req, res) => {
   }
 });
 
-//Get all Products
+//Get Products by ID
 const getProductById = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (product) {
@@ -90,6 +90,7 @@ const createProductController = asyncHandler(async (req, res) => {
     description: req.body.description,
     colors: req.body.colors,
     sizes: req.body.sizes,
+    shippingCost: req.body.shippingCost,
     isProductNew: Date.now() + 300000, //a day
   });
 

@@ -36,11 +36,6 @@ const orderSchema = new mongoose.Schema(
         enum: ['Ashanti', 'Accra', 'Northern', 'Eastern', 'Western', 'Other'],
         required: true,
       },
-      shippingType: {
-        type: String,
-        required: true,
-        enum: ['Free', 'Express'],
-      },
     },
 
     taxPrice: {

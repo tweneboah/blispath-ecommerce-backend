@@ -38,6 +38,10 @@ const productSchema = new mongoose.Schema(
     isProductNew: {
       type: Date,
     },
+    shippingCost: {
+      type: Number,
+      required: [true, 'Shipping cost is required'],
+    },
     brand: {
       type: String,
       required: true,
@@ -67,11 +71,7 @@ const productSchema = new mongoose.Schema(
       required: true,
       default: 0,
     },
-    // numReviews: {
-    //   type: Number,
-    //   required: true,
-    //   default: 0,
-    // },
+
     price: {
       type: Number,
       required: true,
@@ -82,7 +82,6 @@ const productSchema = new mongoose.Schema(
       required: true,
       default: 0,
     },
-    reviews: [reviewSchema],
   },
 
   {
@@ -92,7 +91,3 @@ const productSchema = new mongoose.Schema(
 
 const Product = mongoose.model('Product', productSchema);
 module.exports = Product;
-
-// +86 15344321788
-
-// wentianjin.dev@outlook.com
