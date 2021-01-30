@@ -33,7 +33,16 @@ const orderSchema = new mongoose.Schema(
       email: { type: String, required: true },
       region: {
         type: String,
-        enum: ['Ashanti', 'Accra', 'Northern', 'Eastern', 'Western', 'Other'],
+        enum: [
+          'Ashanti',
+          'Accra',
+          'Northern',
+          'Eastern',
+          'Western',
+          'Other',
+          'Brong Ahafo',
+          'Volta',
+        ],
         required: true,
       },
     },
