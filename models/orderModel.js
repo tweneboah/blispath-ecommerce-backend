@@ -16,7 +16,6 @@ const orderSchema = new mongoose.Schema(
         size: { type: String },
         //Because when creating the profuct we made it array
         price: { type: Number, required: true },
-
         product: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,
@@ -46,7 +45,6 @@ const orderSchema = new mongoose.Schema(
         required: true,
       },
     },
-
     taxPrice: {
       type: Number,
       required: true,

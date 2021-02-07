@@ -58,7 +58,6 @@ const fileUploadController = async (req, res) => {
 };
 
 const createProductController = asyncHandler(async (req, res) => {
-  console.log(req.body.colors.length);
   const uploader = async fileToUpload =>
     await cloudinaryUploadImage(fileToUpload, 'name-of-my-folder');
   const urls = [];
@@ -89,7 +88,8 @@ const createProductController = asyncHandler(async (req, res) => {
     countInStock: req.body.countInStock,
     description: req.body.description,
     colors: req.body.colors,
-    sizes: req.body.sizes,
+    shoesSizes: req.body.shoesSizes,
+    clothingSizes: req.body.clothingSizes,
     shippingCost: req.body.shippingCost,
     isProductNew: Date.now() + 300000, //a day
   });

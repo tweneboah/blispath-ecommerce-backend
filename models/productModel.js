@@ -47,19 +47,29 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
     colors: { type: Array, required: true },
-    sizes: { type: Array, required: true },
+    clothingSizes: { type: Array, required: true },
+    shoesSizes: { type: Array, required: true },
     category: {
       type: String,
       enum: [
-        'Fashion',
-        'Gents',
-        'Ladies',
         'Hot Deals',
         'Phone Accessories',
         'Laptops and Accessories',
         'Home Appliances',
         'Auto Parts',
+        'Men Shoes',
+        'Men Clothings',
+        'Ladies Shoes',
+        'Ladies Clothings',
       ],
+      //  GENTS COLLECTION
+      // 1. MEN SHOES
+      //2. MEN CLOTTHINS
+
+      //  LADIES COLLECTION
+      // 1. LADIES SHOES
+      //2. LADIES CLOTTHINS
+
       required: true,
     },
     description: {
