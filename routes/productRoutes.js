@@ -2,7 +2,6 @@ const express = require('express');
 const {
   createProductController,
   deleteProductController,
-  fileUploadController,
   findProductByNameController,
   getProductById,
   getProducts,
@@ -16,6 +15,7 @@ const productRoutes = express.Router();
 //products
 productRoutes.route('/').get(getProducts);
 productRoutes.route('/find').get(findProductByNameController);
+//Upload image and attach the urls to the product and save to DB
 productRoutes.post(
   '/',
   multerUpload.array('image'),
@@ -24,7 +24,6 @@ productRoutes.post(
   createProductController
 );
 
-productRoutes.post('/file', fileUploadController);
 productRoutes.route('/:id').get(getProductById);
 productRoutes.put('/update/:id', updateProductController);
 productRoutes.delete('/delete/:id', deleteProductController);

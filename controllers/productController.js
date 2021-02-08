@@ -44,38 +44,23 @@ const getProductById = asyncHandler(async (req, res) => {
   }
 });
 
-const fileUploadController = async (req, res) => {
-  try {
-    const fileStr = req.body.data;
-    const upload = await cloudinary.uploader.upload(fileStr, {
-      upload_preset: 'yvxvtoyq',
-    });
-    res.send(upload);
-    console.log(upload);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 const createProductController = asyncHandler(async (req, res) => {
-  const uploader = async fileToUpload =>
-    await cloudinaryUploadImage(fileToUpload, 'name-of-my-folder');
+  //Get the files after multer has verify it and pass it to cloudinary
+  const uploader = async fileToUpload => {
+    return await cloudinaryUploadImage(fileToUpload, 'name-of-my-folder');
+  };
   const urls = [];
   const files = req.files;
 
   for (const file of files) {
     const { path } = file;
-
-    // //Transform it using sharp
-    // sharp(path).resize(200, 200);
-
     const newPath = await uploader(path, {
       width: 350,
       fetch_format: 'auto',
       crop: 'scale',
     });
     urls.push(newPath);
-    fs.unlinkSync(path);
+    fs.unlinkSync(path); //remove file from our storage
   }
 
   const product = await Product.create({
@@ -140,6 +125,5 @@ module.exports = {
   updateProductController,
   deleteProductController,
   findProductByNameController,
-  fileUploadController,
   getProductsByCategoryController,
 };
