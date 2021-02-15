@@ -60,7 +60,7 @@ const createProductController = asyncHandler(async (req, res) => {
       crop: 'scale',
     });
     urls.push(newPath);
-    fs.unlinkSync(path); //remove file from our storage
+    ///// fs.unlinkSync(path); //remove file from our storage
   }
 
   const product = await Product.create({
